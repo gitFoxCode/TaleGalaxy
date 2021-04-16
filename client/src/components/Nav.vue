@@ -16,51 +16,13 @@
 	                </template>
                 </AutoComplete>
             </div>
-            <ul class="buttons">
-                <router-link to="/" v-slot="{ href, navigate, isActive }" custom>
-                    <li class="button" :class="[isActive && 'button--active']">
-                        <a :href="href" @click="navigate">Strona główna</a>
-                    </li>
-                </router-link>
-                <router-link :to="{ path: '/', hash: '#plans' }" v-slot="{ href, navigate }" custom>
-                    <li class="button">
-                        <a :href="href" @click="navigate">Cennik</a>
-                    </li>
-                </router-link>
-                <router-link to="/list" v-slot="{ href, navigate, isActive }" custom>
-                    <li class="button" :class="[isActive && 'button--active']">
-                        <a :href="href" @click="navigate">Lista bajek</a>
-                    </li>
-                </router-link>
-                <router-link to="/login" v-slot="{ href, navigate, isActive }" custom>
-                    <li class="button" :class="[(isActive || $route.path =='/register') && 'button--active']">
-                        <a :href="href" @click="navigate">Zaloguj się</a>
-                    </li>
-                </router-link>
-            </ul>
+            <Nav_user  v-if="store.state.isUserLoggedIn" />
+            <Nav_guest v-else />
         </nav>
     </header>
 </template>
 
-<style lang="scss" scoped>
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%;
-    height: 80px;
-    background-color: rgba(16, 22, 40, 0.9);
-    border-bottom: 3px solid #18213c;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-}
-.nav{
-    display: flex;
-    align-items: center;
-}
+<style>
 .buttons{
     display: flex;
     margin-left: 30px;
@@ -111,6 +73,27 @@
     background-color: transparent;
     box-shadow: 2px 0px 40px 10px rgb(252 55 29);
     animation: showAnim 0.3s ease forwards;
+}
+</style>
+
+<style lang="scss" scoped>
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(16, 22, 40, 0.9);
+    border-bottom: 3px solid #18213c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+.nav{
+    display: flex;
+    align-items: center;
 }
 .logo{
     display: flex;
@@ -205,13 +188,22 @@
 </style>
 
 <script>
+import Nav_guest from "@/components/Nav_guest.vue";
+import Nav_user from "@/components/Nav_user.vue";
+import { useStore } from 'vuex';
 import { ref, computed, watch } from 'vue'; //jezeli chce reaktywne gowno
 
 export default {
     name: "Nav",
+    components: {
+        Nav_guest,
+        Nav_user
+    },
     setup(){
         const filteredCountries = ref(null);
         const selectedCountry = ref(null);
+
+        const store = useStore();
 
         const  list = ref([{
             title: "Pora na przygodę!",
@@ -318,7 +310,7 @@ export default {
             }, 250);
         }
 
-        return { filteredCountries, selectedCountry, searchCountry  }
+        return { filteredCountries, selectedCountry, searchCountry, store  }
     }
 }
 </script>

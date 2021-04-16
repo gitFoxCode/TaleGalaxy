@@ -7,6 +7,9 @@ import Api from '@/services/Api.js'
 export default{
     register (credentials){
         return Api().post('users', credentials) // /users POST
+    },
+    login (credentials){
+        return Api().post('login', credentials) // /login POST
     }
 }
 

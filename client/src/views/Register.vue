@@ -11,18 +11,30 @@
 
                 <label>
                     <span class="input__title">E-mail</span>
-                    <input type="email" class="input" placeholder="johndoe@example.com" v-model="email">
+                    <input type="email" class="input" placeholder="johndoe@example.com" 
+                    v-model="email" 
+                    :class="[inputError == 'email' ? 'input--error' : '']">
                 </label>
                 <label>
                     <span class="input__title">Hasło</span>
-                    <input type="password" class="input" placeholder="******" v-model="password">
+                    <input type="password" class="input" placeholder="******" 
+                    v-model="password"
+                    :class="[inputError == 'password' ? 'input--error' : '']">
                 </label>
 
                 <button type="submit" class="login-button register-button" @click="register">Zarejestruj się</button>
 
-                <button type="submit" class="login-button socialbtn__facebook">Zarejestruj się przez facebook</button>
+                <div class="errorbox" v-html="error" v-if="error"></div>
+
+                <span class="linetext">
+                    <span class="linetext__text">Albo</span>
+                </span>
+                <div class="socialbtns">
+                    <button type="submit" class="login-button socialbtn__facebook" title="Zarejestruj się przy użyciu konta facebook"><svg-icon icon="facebook" /> </button>
+                    <button type="submit" class="login-button socialbtn__gmail" title="Zarejestruj się przy użyciu konta gmail"><svg-icon icon="google" /> </button>
+                </div>
                 <hr>
-                <span class="text">Posiadasz konto? <a href="#">Zaloguj się</a></span>
+                <span class="text">Posiadasz konto? <router-link to="/login">Zaloguj się</router-link></span>
 
             </div>
         </section>
@@ -32,26 +44,66 @@
 <script>
 import Auth from "@/services/Auth";
 import { ref, computed, watch } from 'vue';
+import { useStore } from 'vuex'
 
 export default{
     setup(){
         const email = ref("");
         const password = ref("");
+        const error = ref(null);
+        const inputError = ref(null);
+        const store = useStore();
 
         async function register(){
-            const response = await Auth.register({
-                email, password
-            });
-            console.log(response.data)
+            try{
+                const response = await Auth.register({
+                    email: email.value, 
+                    password: password.value
+                });
+                store.dispatch('setToken', response.data.token)
+                store.dispatch('setUser', response.data.user)
+                console.log(response.data)
+            } catch(err){
+                inputError.value = err.response.data.input || "";
+                error.value = "<b>Error:</b> " + err.response.data.error;
+            }
+            
         }
-        console.log(email,password);
 
-        return {email, password, register}
+        return {email, password, register, error, inputError}
     }
 }
 </script>
 
 <style lang="scss" scoped>
+.socialbtns{
+    display: flex;
+}
+.linetext{
+    position: relative;
+    z-index: 1;
+}
+.linetext__text{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 0px 15px;
+    background-color: #F7F8FC;
+}
+.linetext::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+.register-button{
+    margin-bottom: 30px;
+}
 .column{
     display: flex;
     flex-direction: column;
@@ -85,6 +137,7 @@ export default{
     font-size: 1.7em;
     font-weight: bold;
     color: #fc371d;
+    white-space: nowrap;
 }
 .subtitle{
     font-family: 'Roboto', sans-serif;
@@ -137,8 +190,30 @@ export default{
     color: #aaa;
     text-decoration: underline;
 }
+.socialbtns .login-button:first-of-type{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.socialbtns .login-button:last-of-type{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.socialbtns .icon{
+   font-size: 1.2em;
+}
+.socialbtns .login-button{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+.socialbtns .login-button:hover{
+    flex-grow: 1.5;
+}
 .socialbtn__facebook{
     background-color: #3b5998;
+}
+.socialbtn__gmail{
+    background-color: #EA4335;
 }
 .register-button {
     font-family: 'Roboto', sans-serif;

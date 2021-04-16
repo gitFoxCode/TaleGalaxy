@@ -168,7 +168,10 @@ export default {
         const filteredList = computed(()=>{
             return list.value.filter((item)=>{ 
                 let searchVal = search.value.toLowerCase().trim();
-               return levenshtein(item.title.toLowerCase(),searchVal) < 3 || levenshtein(item.description.toLowerCase(),searchVal) < 3 || item.title.toLowerCase().match(searchVal) || item.description.toLowerCase().trim().match(searchVal);
+                let itemTitleVal = item.title.toLowerCase().trim();
+                let itemDescVal = item.description.toLowerCase().trim();
+                /* TODO?: levenshtein distance for sentences not only words */
+               return levenshtein(itemTitleVal,searchVal) < 3 || levenshtein(itemDescVal,searchVal) < 3 || itemTitleVal.match(searchVal) || itemDescVal.match(searchVal);
             });
         })
 

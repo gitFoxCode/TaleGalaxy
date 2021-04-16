@@ -14,12 +14,14 @@ module.exports = {
             switch(error.details[0].context.key){
                 case 'email':
                     res.status(400).send({
-                        error: "You must provide a valid email address!"
+                        error: "You must provide a valid email address!",
+                        input: error.details[0].context.key
                     })
                     break;
                 case 'password':
                     res.status(400).send({
-                        error: "Password must be 3-100 length"
+                        error: "Password must be 3-100 length",
+                        input: error.details[0].context.key
                     })
                     break;
                 default:

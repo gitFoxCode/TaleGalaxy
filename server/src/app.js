@@ -17,7 +17,7 @@ app.use(express.urlencoded({
 
 app.use(cors());
 
-sequelize.sync({force: true})
+sequelize.sync()
     .then(()=>{
         app.listen(config.PORT);
         console.log(`[*] Serwer nasłuchuje na porcie ${config.PORT}`)
