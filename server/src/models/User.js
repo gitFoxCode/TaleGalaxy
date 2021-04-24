@@ -20,8 +20,14 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.STRING,
           unique: true
         },
-        password: DataTypes.STRING
+        password: DataTypes.STRING,
+        rank: {
+            type: DataTypes.TINYINT,
+            defaultValue: 1
+        },
+        premiumFor: DataTypes.DATE
     },{
+        tableName: 'users',
         hooks: {
             beforeSave: hashPassword
         }

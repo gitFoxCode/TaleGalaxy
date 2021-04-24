@@ -18,8 +18,10 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/reset.scss";
-
-
+@font-face {
+  font-family: "Lovelo";
+  src: url("assets/fonts/Lovelo-black.woff2") format("woff2");
+}
 *,*::after,*::before{
   box-sizing: border-box;
 }

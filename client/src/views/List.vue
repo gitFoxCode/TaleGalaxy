@@ -143,7 +143,9 @@
 <script>
 import levenshtein from 'js-levenshtein';
 import Listcard from "@/components/Listcard.vue";
-import { ref, computed, watch } from 'vue'; //jezeli chce reaktywne gowno
+import { ref, computed, watch, onMounted  } from 'vue'; //jezeli chce reaktywne gowno
+
+import SeriesService from '@/services/SeriesService'
 
 export default {
     name: "List",
@@ -152,7 +154,15 @@ export default {
     },
     setup(){
 
+        const series = ref(null);
 
+        async function getFullList(){
+            series.value = await SeriesService.getAllSeries();
+            console.log(series);
+        }
+
+        onMounted(getFullList) 
+        
         const selectedCity = ref({name: 'Ocena', icon: 'heart', sort: 'rate'});
 		const cities = ref([
 			{name: 'Ocena', icon: 'heart', sort: 'rate'},
@@ -302,7 +312,7 @@ export default {
             sort(newEl.sort);
         }, { immediate: true });
 
-        return {list, sort, search, filteredList,selectedCity,cities};
+        return {list, sort, search, filteredList,selectedCity,cities, series};
     }
 
 }
