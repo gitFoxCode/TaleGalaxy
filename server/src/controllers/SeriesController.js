@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
-const { Series, SeriesPL } = require('../models')
+const { Series, SeriesPL, SeriesENG } = require('../models')
+const translations = {"PL": SeriesPL, "ENG": SeriesENG}
 
 module.exports = {
     async Search (req, res){
@@ -11,17 +12,31 @@ module.exports = {
             const page = req.query.page
             const order = sort ? sortSeries(sort) : null
             const offset = page ? (page-1)*limit : null
+            const translation = req.query.t ? translations[req.query.t.toUpperCase()] : SeriesENG // Translation
+            if(!translation){
+                console.log(translation);
+                res.status(404).send({
+                    error: `There is no such language in the database. (${req.query.t})`
+                })
+            }
             if(search) {
                 series = await Series.findAll({
-                    include: [{model: SeriesPL, as: 'Seriesxd'}],
-                    attributes: { exclude: ['SeriesId'] },
-                    where: {
-                        [Op.or]: ['title', 'description'].map((key)=>({
-                            [key]: {
-                                [Op.like]: `%${search}%`
-                            }
-                        }))
-                    }
+                    limit,
+                    offset,
+                    order,
+                    include: [{
+                        model: translation,
+                        where: {
+                            [Op.or]: ['title', 'description'].map((key)=>({
+                                [key]: {
+                                    [Op.like]: `%${search}%`
+                                }
+                            }))
+                        },
+                        attributes: { exclude: ['SeriesId'] },
+                        required: true
+                    }],
+                    
                 })
             } else {
                 series = await Series.findAll({
@@ -29,7 +44,7 @@ module.exports = {
                     offset,
                     order,
                     include: [{
-                        model: SeriesPL, //"translation_PL",
+                        model: translation,
                         attributes: { exclude: ['SeriesId'] },
                         required: true
                     }]

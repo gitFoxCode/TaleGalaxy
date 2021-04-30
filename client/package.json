@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "click-outside-vue3": "^4.0.1",
     "core-js": "^3.6.5",
     "js-levenshtein": "^1.1.6",
     "primevue": "^3.3.5",

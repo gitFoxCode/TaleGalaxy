@@ -78,6 +78,7 @@ input.input--error{
     font-size: 0.8em;
     line-height: 150%;
     border-left: 5px solid red;
+    margin-top: 10px;
 }
 
 /* Animations */

@@ -24,11 +24,12 @@ module.exports = (sequelize, DataTypes) => {
         }
     }, {
        // tableName: 'series',
-        timestamps: false
+        timestamps: true
     })
 
     Series.associate = function (models) {
         Series.hasOne(models.SeriesPL)
+        Series.hasOne(models.SeriesENG)
     }
 
     return Series

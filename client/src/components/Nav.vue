@@ -30,7 +30,7 @@
 .button{
     position: relative;
 }
-.button a{
+.button a, .button button{
     display: block;
     height: 80px;
     display: flex;
@@ -45,9 +45,12 @@
     font-style: normal;
     padding: 0 20px;
     transition: background-color 0.4s;
+    border: none;
+    background-color: transparent;
 }
-.button a:hover{
+.button a:hover, .button button:hover{
     background-color: rgba(16, 22, 40, 0.5);
+    cursor: pointer;
 }
 .button--active a{
     color: #fc371d;

@@ -8,35 +8,36 @@
             <div class="column">
                 <span class="title">Witamy ponownie!</span>
                 <span class="subtitle">Zaloguj się na konto poniżej</span>
+                <form v-on:submit.prevent="onSubmit"> 
+                    <label>
+                        <span class="input__title">E-mail</span>
+                        <input type="email" class="input" placeholder="johndoe@example.com"
+                        v-model="email" 
+                        :class="[inputError == 'email' ? 'input--error' : '']">
+                    </label>
+                    <label>
+                        <span class="input__title">Hasło</span>
+                        <input type="password" class="input" placeholder="******"
+                        v-model="password"
+                        :class="[inputError == 'password' ? 'input--error' : '']">
+                    </label>
 
-                <label>
-                    <span class="input__title">E-mail</span>
-                    <input type="email" class="input" placeholder="johndoe@example.com"
-                    v-model="email" 
-                    :class="[inputError == 'email' ? 'input--error' : '']">
-                </label>
-                <label>
-                    <span class="input__title">Hasło</span>
-                    <input type="password" class="input" placeholder="******"
-                    v-model="password"
-                    :class="[inputError == 'password' ? 'input--error' : '']">
-                </label>
+                    <div class="errorbox" v-html="error" v-if="error"></div>
 
-                <div class="errorbox" v-html="error" v-if="error"></div>
+                    <button type="submit" class="login-button" @click="login">Zaloguj się</button>
 
-                <button type="submit" class="login-button" @click="login">Zaloguj się</button>
+                    <span class="linetext">
+                        <span class="linetext__text">Albo</span>
+                    </span>
 
-                <span class="linetext">
-                    <span class="linetext__text">Albo</span>
-                </span>
-
-                <div class="socialbtns">
-                    <button type="submit" class="login-button socialbtn__facebook" title="Zaloguij się przy użyciu konta facebook"><svg-icon icon="facebook" /> </button>
-                    <button type="submit" class="login-button socialbtn__gmail" title="Zaloguj się przy użyciu konta gmail"><svg-icon icon="google" /> </button>
-                </div>
-                <hr>
-                <span class="text">Nie posiadasz konta?</span>
-                <router-link to="/register" class="login-button register-button">Zarejestruj się</router-link>
+                    <div class="socialbtns">
+                        <button type="submit" class="login-button socialbtn__facebook" title="Zaloguij się przy użyciu konta facebook"><svg-icon icon="facebook" /> </button>
+                        <button type="submit" class="login-button socialbtn__gmail" title="Zaloguj się przy użyciu konta gmail"><svg-icon icon="google" /> </button>
+                    </div>
+                    <hr>
+                    <span class="text">Nie posiadasz konta?</span>
+                    <router-link to="/register" class="login-button register-button">Zarejestruj się</router-link>
+                </form>
                 <span class="smalltext">
                     <router-link to="/">Zapomniałem hasła</router-link>
                 </span>

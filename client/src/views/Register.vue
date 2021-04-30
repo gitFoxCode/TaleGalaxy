@@ -8,31 +8,32 @@
             <div class="column">
                 <span class="title">Odkrywaj galaktykę!</span>
                 <span class="subtitle">Zajerestruj się poniżej</span>
+                <form v-on:submit.prevent="onSubmit"> 
+                    <label>
+                        <span class="input__title">E-mail</span>
+                        <input type="email" class="input" placeholder="johndoe@example.com" 
+                        v-model="email" 
+                        :class="[inputError == 'email' ? 'input--error' : '']">
+                    </label>
+                    <label>
+                        <span class="input__title">Hasło</span>
+                        <input type="password" class="input" placeholder="******" 
+                        v-model="password"
+                        :class="[inputError == 'password' ? 'input--error' : '']">
+                    </label>
 
-                <label>
-                    <span class="input__title">E-mail</span>
-                    <input type="email" class="input" placeholder="johndoe@example.com" 
-                    v-model="email" 
-                    :class="[inputError == 'email' ? 'input--error' : '']">
-                </label>
-                <label>
-                    <span class="input__title">Hasło</span>
-                    <input type="password" class="input" placeholder="******" 
-                    v-model="password"
-                    :class="[inputError == 'password' ? 'input--error' : '']">
-                </label>
+                    <button type="submit" class="login-button register-button" @click="register">Zarejestruj się</button>
 
-                <button type="submit" class="login-button register-button" @click="register">Zarejestruj się</button>
+                    <div class="errorbox" v-html="error" v-if="error"></div>
 
-                <div class="errorbox" v-html="error" v-if="error"></div>
-
-                <span class="linetext">
-                    <span class="linetext__text">Albo</span>
-                </span>
-                <div class="socialbtns">
-                    <button type="submit" class="login-button socialbtn__facebook" title="Zarejestruj się przy użyciu konta facebook"><svg-icon icon="facebook" /> </button>
-                    <button type="submit" class="login-button socialbtn__gmail" title="Zarejestruj się przy użyciu konta gmail"><svg-icon icon="google" /> </button>
-                </div>
+                    <span class="linetext">
+                        <span class="linetext__text">Albo</span>
+                    </span>
+                    <div class="socialbtns">
+                        <button type="submit" class="login-button socialbtn__facebook" title="Zarejestruj się przy użyciu konta facebook"><svg-icon icon="facebook" /> </button>
+                        <button type="submit" class="login-button socialbtn__gmail" title="Zarejestruj się przy użyciu konta gmail"><svg-icon icon="google" /> </button>
+                    </div>
+                </form>
                 <hr>
                 <span class="text">Posiadasz konto? <router-link to="/login">Zaloguj się</router-link></span>
 
