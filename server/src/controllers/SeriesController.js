@@ -10,13 +10,20 @@ module.exports = {
             const sort = req.query.sort
             const limit = req.query.limit || 10
             const page = req.query.page
-            const order = sort ? sortSeries(sort) : null
+            let order = ""
+            let orderSeriesLang = ""
+            //const order = sort ? sortSeries(sort) : null
+            if(sort == 'asc'){
+                orderSeriesLang = sort ? sortSeries(sort) : null
+            }else{
+                order = sort ? sortSeries(sort) : null
+            }
             const offset = page ? (page-1)*limit : null
-            const translation = req.query.t ? translations[req.query.t.toUpperCase()] : SeriesENG // Translation
+            const translation = req.query.lang ? translations[req.query.lang.toUpperCase()] : SeriesENG // Translation
             if(!translation){
-                console.log(translation);
+               // console.log(translation);
                 res.status(404).send({
-                    error: `There is no such language in the database. (${req.query.t})`
+                    error: `There is no such language in the database. (${req.query.lang})`
                 })
             }
             if(search) {
@@ -33,10 +40,34 @@ module.exports = {
                                 }
                             }))
                         },
-                        attributes: { exclude: ['SeriesId'] },
+                        order: orderSeriesLang,
+                        attributes: { exclude: ['SeriesId', 'id'] },
                         required: true
                     }],
                     
+                 }).then((results)=>{
+                    let lang = req.query.lang ? req.query.lang.toUpperCase() : "ENG"
+                    console.log(results)
+                    results = results.map((result)=>{
+                        return {
+                            id: result.id,
+                            title: result[`Series${lang}`].title,
+                            description: result[`Series${lang}`].description,
+                            station: result.station,
+                            rate: result.rate,
+                            src: result.src,
+                            thumb: result.thumb,
+                            dubbing: result.dubbing.toLowerCase().replaceAll(' ','').split(','),
+                            pegi: result.pegi,
+                            available: result.available,
+                            createdAt: result.createdAt,
+                            updatedAt: result.updatedAt
+
+                        }
+                    })
+                    return results
+                }).catch(err=>{
+                    console.error(err);
                 })
             } else {
                 series = await Series.findAll({
@@ -46,12 +77,37 @@ module.exports = {
                     include: [{
                         model: translation,
                         attributes: { exclude: ['SeriesId'] },
+                        order: orderSeriesLang,
                         required: true
                     }]
+                }).then((results)=>{
+                    let lang = req.query.lang ? req.query.lang.toUpperCase() : "ENG"
+                    console.log(results)
+                    results = results.map((result)=>{
+                        return {
+                            id: result.id,
+                            title: result[`Series${lang}`].title,
+                            description: result[`Series${lang}`].description,
+                            station: result.station,
+                            rate: result.rate,
+                            src: result.src,
+                            thumb: result.thumb,
+                            dubbing: result.dubbing.toLowerCase().replaceAll(' ','').split(','),
+                            pegi: result.pegi,
+                            available: result.available,
+                            createdAt: result.createdAt,
+                            updatedAt: result.updatedAt
+
+                        }
+                    })
+                    return results
+                }).catch(err=>{
+                    console.error(err);
                 })
             }
             res.send(series);
         } catch(err){
+            console.error("Wystąpił błąd", err)
             res.status(500).send({
                 error: "Zesrało sie xd " + err
             })

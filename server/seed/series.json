@@ -1,201 +1,213 @@
-[{
+[
+  {
     "station": "Disney Channel",
-    "src": "spangebob",
-    "thumb": "spangebob",
+    "src": "spongebob",
+    "thumb": "spongebob.jpg",
+    "rate": 7,
     "dubbing": "PL, ENG",
     "pegi": "7",
     "available": "1"
-},
-{
+  },
+  {
     "station": "DisneyXD",
     "src": "gravity-falls",
-    "thumb": "gravity-falls",
+    "thumb": "gravity-falls.jpg",
     "dubbing": "PL, ENG",
     "pegi": "7",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "ben-10",
-    "thumb": "ben-10",
+    "thumb": "ben10.jpg",
     "dubbing": "PL, ENG",
     "pegi": "6",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "xiaolin",
-    "thumb": "xiaolin",
+    "thumb": "xiaolin.jpeg",
     "dubbing": "PL, ENG",
     "pegi": "6",
     "available": "1"
-},
-{
+  },
+  {
     "station": "DisneyXD",
     "src": "adventure-time",
-    "thumb": "adventure-time",
+    "thumb": "adventure-time.jpg",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Disney XD",
     "src": "pokemon",
-    "thumb": "pokemon",
+    "thumb": "pokemon.jpg",
     "dubbing": "PL, ENG",
     "pegi": "6",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "dexter",
-    "thumb": "dexter",
+    "thumb": "dexter.jpg",
     "dubbing": "PL, ENG",
     "pegi": "8",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "regular-show",
-    "thumb": "regular-show",
+    "thumb": "regular-show.jpg",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "samurai-jack",
-    "thumb": "samurai-jack",
+    "thumb": "samurai-jack.jpg",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "teen-titans",
-    "thumb": "teen-titans",
+    "thumb": "teen-titans.jpg",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "ed-edd-n-eddy",
-    "thumb": "ed-edd-n-eddy",
+    "thumb": "ed-edd-n-eddy.png",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Nickelodeon",
     "src": "teenage-robot",
-    "thumb": "teenage-robot",
+    "thumb": "teenage-robot.jpg",
     "dubbing": "PL, ENG",
     "pegi": "8",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "foster",
-    "thumb": "foster",
+    "thumb": "fosters.jpg",
     "dubbing": "PL, ENG",
     "pegi": "6",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Nickelodeon",
     "src": "danny-phantom",
-    "thumb": "danny-phantom",
+    "thumb": "danny-phantom.jpg",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Nickelodeon",
     "src": "avatar-legend-of-aang",
-    "thumb": "avatar-legend-of-aang",
+    "thumb": "avatar.png",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Disney Channel",
     "src": "totally-spies",
-    "thumb": "totally-spies",
+    "thumb": "totally-spies.jpg",
     "dubbing": "PL, ENG",
     "pegi": "6",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "monkey-partner",
-    "thumb": "monkey-partner",
+    "thumb": "monkey-partner.jpg",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Disney Channel",
     "src": "Brenda-n-mr-Whiskers",
-    "thumb": "Brenda-n-mr-Whiskers",
+    "thumb": "Brenda-n-mr-Whiskers.jpg",
     "dubbing": "PL, ENG",
     "pegi": "8",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "knd",
-    "thumb": "knd",
+    "thumb": "knd.jpg",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Disney Channel",
     "src": "american-dragon-jake-long",
-    "thumb": "american-dragon-jake-long",
+    "thumb": "american-dragon.jpg",
     "dubbing": "PL, ENG",
     "pegi": "8",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "billy-n-mandy",
-    "thumb": "billy-n-mandy",
+    "thumb": "billy-n-mandy.jpg",
     "dubbing": "PL, ENG",
     "pegi": "12",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "johnny-bravo",
-    "thumb": "johnny-bravo",
+    "thumb": "johnny-bravo.jpg",
     "dubbing": "PL, ENG",
     "pegi": "8",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "camp-lazlo",
-    "thumb": "camp-lazlo",
+    "thumb": "camp-lazlo.png",
     "dubbing": "PL, ENG",
     "pegi": "8",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Cartoon Network",
     "src": "juniper-lee",
-    "thumb": "juniper-lee",
+    "thumb": "juniper-lee.jpg",
     "dubbing": "PL, ENG",
     "pegi": "8",
     "available": "1"
-},
-{
+  },
+  {
     "station": "Fuji TV",
     "src": "one-piece",
-    "thumb": "one-piece",
+    "thumb": "one-piece.jpg",
     "dubbing": "PL, ENG",
     "pegi": "14",
     "available": "1"
-}
+  },
+  {
+    "name": "",
+    "rate": 5,
+    "station": "???",
+    "src": "???",
+    "thumb": "???",
+    "dubbing": "PL, ENG",
+    "pegi": "???",
+    "available": "1"
+  }
 ]

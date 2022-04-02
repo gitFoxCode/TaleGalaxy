@@ -32,8 +32,10 @@ body{
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
   font-display: optional;
-  background: url('~@/assets/images/galaxy_body.jpg');
-  background-size: cover;
+  // background: url('~@/assets/images/galaxy_body.jpg');
+  background: url('~@/assets/images/test-background2.png');
+  //background-size: cover;
+  background-size: 130%;
   color: #fff;
   min-height: 100vh;
   padding-bottom: 200px;

@@ -3,5 +3,20 @@
     "email": "foxcode@galaxy.pl",
     "password": "qwerty",
     "rank": "4"
+},
+{
+    "email": "foxuser@galaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "foxpremium@galaxy.pl",
+    "password": "qwerty",
+    "rank": "2"
+},
+{
+    "email": "foxmod@galaxy.pl",
+    "password": "qwerty",
+    "rank": "3"
 }
 ]

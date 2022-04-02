@@ -15,19 +15,16 @@
     </li>
 </ul>
 <nav v-if="dropdownActive" class="nav__dropdown"  v-click-outside="dropdown">
-    <div class="nav__dropdown__bagde">
-        <svg-icon icon="admin-badge" /> Witaj, {{store.state.user.email.split('@')[0]}}
+    <div class="nav__dropdown__bagde" title="administrator">
+        Witaj, {{store.state.user.email.split('@')[0]}}
     </div>
     <ul class="nav__dropdown__inner">
-        <li><router-link to="/admin"><svg-icon icon="settingsgear" /> Admin panel</router-link></li>
-        <li><router-link to="/play"><svg-icon icon="play" />Oglądaj</router-link></li>
-        <li><router-link to="/history"><svg-icon icon="history" />Historia</router-link></li>
+        <li class="specialtext"><router-link to="/favourites"><svg-icon icon="unlock" />Kup dostęp</router-link></li>
         <li><router-link to="/settings"><svg-icon icon="settings" />Ustawienia</router-link></li>
         <li @click="logout"><svg-icon icon="logout" />Wyloguj się</li>
     </ul>
 </nav>
 </template>
-
 <style>
 .nav__dropdown__bagde{
     padding: 15px;
@@ -42,7 +39,7 @@
 }
 .nav__dropdown__bagde .icon{
     font-size: 1.2em;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .nav__dropdown{
     position: fixed;
@@ -76,6 +73,10 @@
     color: #eee;
     padding: 15px 40px;
     border-bottom: 1px solid #112241;
+}
+.nav__dropdown__inner .specialtext a{
+    color: #fff238;
+    text-shadow: 0px 0px 10px #fff200;
 }
 .nav__dropdown__inner li:hover{
     background-color: #1F2C53;
