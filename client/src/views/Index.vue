@@ -8,12 +8,12 @@
         >
       </div>
       <div class="hero__actions">
-        <button type="button" class="hero__button">
+        <router-link type="button" class="hero__button" tag="button" to="/login">
           Zacznij teraz!<span class="hero__button-addtext"
             >Sprawdź przez 7 dni
             <span class="text--special">za darmo</span>!</span
           >
-        </button>
+        </router-link>
       </div>
     </section>
     <section class="section">
@@ -113,6 +113,7 @@
   transition: transform 0.3s;
   box-shadow: 0px 0px 40px 0px rgba(247,62,62,0.9);
   transform-style: preserve-3d;
+  text-decoration: none;
 }
 .hero__button::after{
   content: "";
