@@ -1,4 +1,4 @@
-import Api from '@/services/Api.js'
+import axios from 'axios'
 
 /*
     Logika użytkowników, logowanie, rejestracja, wyszukiwanie itp.
@@ -6,10 +6,10 @@ import Api from '@/services/Api.js'
 
 export default{
     register (credentials){
-        return Api().post('users', credentials) // /users POST
+        return axios.post('users', credentials) // /users POST
     },
     login (credentials){
-        return Api().post('login', credentials) // /login POST
+        return axios.post('login', credentials) // /login POST
     }
 }
 

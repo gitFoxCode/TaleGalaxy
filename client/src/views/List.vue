@@ -60,7 +60,7 @@
             :rating="item.rate"
             :station="item.station"
             :src="item.src"
-            :img="`${API}data/thumbs/${item.thumb}`"
+            :img="item.thumb"
           />
         </template>
         <template v-else>
@@ -175,7 +175,6 @@ export default {
     Listcard,
   },
   setup() {
-    const API = "http://localhost:8081/";
     const series = ref([]);
     let search = "";
     let searchSort = "rate";
@@ -197,8 +196,6 @@ export default {
         sort: searchSort,
         search,
       });
-
-      console.log(series.value);
     }
 
     onMounted(() => {
@@ -218,7 +215,7 @@ export default {
       getFullList();
     }
 
-    return { sorting, search, selected, optionsSelect, series, searching, API };
+    return { sorting, search, selected, optionsSelect, series, searching };
   },
 };
 </script>

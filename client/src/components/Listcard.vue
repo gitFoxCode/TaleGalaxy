@@ -2,17 +2,18 @@
   <li class="card">
     <div class="card__avatar">
       <img
-        src="@/assets/images/placeholder-image.jpg"
+        src="@/assets/images/image-placeholder.png"
         :alt="`Obrazek zastępczy dla ${title}`"
-        v-if="img == ''"
+        v-if="!thumbnail"
       />
       <img
-        :src="`${img}`"
+        :src="thumbnail"
         v-else
         @mouseover="hover = true"
         @mouseleave="hover = false"
+        @error="replaceByDefault"
       />
-      <img class="img__inspect" :src="`${img}`" v-if="hover" />
+      <img class="img__inspect" :src="thumbnail" v-if="hover" />
       <div class="card__pegi">{{ pegi }}</div>
     </div>
     <div class="card__info">
@@ -195,6 +196,7 @@
 </style>
 
 <script>
+import axios from 'axios'
 export default {
   name: "Listcard",
   data() {
@@ -214,5 +216,19 @@ export default {
     dubbing: Array,
     available: Boolean,
   },
+  setup(props){
+    let thumbnail = null
+
+    const replaceByDefault = (ev) => {
+        const placeholder = require('../assets/images/image-placeholder-error.png')
+        ev.target.src = placeholder
+    }
+
+    if(props.img){
+        thumbnail = axios.defaults.baseURL + 'data/thumbs/' + props.img
+    }
+
+    return { thumbnail, replaceByDefault }
+  }
 };
 </script>
