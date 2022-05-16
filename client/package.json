@@ -13,7 +13,7 @@
     "click-outside-vue3": "^4.0.1",
     "core-js": "^3.6.5",
     "js-levenshtein": "^1.1.6",
-    "primevue": "^3.3.5",
+    "primevue": "^3.12.6",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0",

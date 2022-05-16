@@ -18,7 +18,7 @@
           <template #item="slotProps">
             <img
               :alt="slotProps.item.title"
-              :src="require(`@/tales/thumbs/${slotProps.item.thumb}`)"
+              :src="`${API}data/thumbs/${slotProps.item.thumb}`"
             />
             <div class="option__info">
               <span class="option__info__title">{{
@@ -215,13 +215,14 @@
 
 <script>
 import SeriesService from "@/services/SeriesService";
-import Nav_guest from "@/components/Nav_guest.vue";
-import Nav_user from "@/components/Nav_user.vue";
-import Nav_premium from "@/components/Nav_premium.vue";
-import Nav_moderator from "@/components/Nav_moderator.vue";
-import Nav_admin from "@/components/Nav_admin.vue";
+import Nav_guest from "@/components/nav/guest.vue";
+import Nav_user from "@/components/nav/user.vue";
+import Nav_premium from "@/components/nav/premium.vue";
+import Nav_moderator from "@/components/nav/moderator.vue";
+import Nav_admin from "@/components/nav/admin.vue";
 import { useStore } from "vuex";
 import { ref, computed, watch, onMounted } from "vue";
+import axios from 'axios'
 
 export default {
   name: "Nav",
@@ -233,6 +234,8 @@ export default {
     Nav_admin,
   },
   setup() {
+    const API = axios.defaults.baseURL;
+
     const store = useStore();
     console.log("Store state:", store.state);
 
@@ -253,7 +256,7 @@ export default {
       }, 250);
     }
 
-    return { list, selectedSerie, store, searching };
+    return { list, selectedSerie, store, searching, API };
   },
 };
 </script>
