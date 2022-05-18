@@ -21,6 +21,17 @@ const routes = [
     path: "/register",
     name: "Register page",
     component: () => import("../views/Register.vue"),
+  },
+  {
+    path: "/admin",
+    name: "Admin panel",
+    component: () => import("../views/admin/Index.vue"),
+    children: [
+      {
+        path: 'users',
+        component: () => import("../views/admin/Users.vue"),
+      }
+    ]
   }
   // {
   //   path: "/about",

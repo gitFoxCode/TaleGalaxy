@@ -238,6 +238,7 @@ export default {
 
     const store = useStore();
     console.log("Store state:", store.state);
+    console.log(store);
 
     const selectedSerie = ref(null);
     const list = ref([]);
