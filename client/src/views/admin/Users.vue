@@ -1,9 +1,11 @@
 <template>
-  <b>USERS</b>
+  <section class="panel">
+    Users (2132)
+  </section>
 </template>
 
 <script>
-import Box from "@/components/admin/box.vue";
+// import Box from "@/components/admin/box.vue";
 
 export default{
     setup() {
@@ -12,8 +14,11 @@ export default{
 }
 </script>
 
-<style scoped>
-.section{
-    margin: 0;
+<style lang="scss" scoped>
+.panel{
+  background-color: #FAFAFA;
+  width: 100%;
+  color: #333;
 }
 </style>
+

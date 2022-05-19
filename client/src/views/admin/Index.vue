@@ -7,7 +7,7 @@
 
 <script>
 import AsideNav from "@/components/admin/AsideNav.vue";
-import Box from "@/components/admin/box.vue";
+import Box from "@/components/admin/Box.vue";
 
 export default{
     components: {
@@ -22,5 +22,6 @@ export default{
 <style scoped>
 .section{
     margin: 0;
+    display: flex;
 }
 </style>
