@@ -20,7 +20,11 @@ export default{
 </script>
 
 <style scoped>
+body{
+    padding-bottom: 0 !important;
+}
 .section{
+    padding-top: 80px;
     margin: 0;
     display: flex;
 }

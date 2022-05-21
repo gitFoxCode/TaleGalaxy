@@ -1,31 +1,31 @@
 <template>
-<ul class="buttons">
-    <router-link to="/" v-slot="{ href, navigate, isActive }" custom>
-        <li class="button" :class="[isActive && 'button--active']">
-            <a :href="href" @click="navigate">Strona główna</a>
+    <ul class="buttons">
+        <router-link to="/" v-slot="{ href, navigate, isActive }" custom>
+            <li class="button" :class="[isActive && 'button--active']">
+                <a :href="href" @click="navigate">Strona główna</a>
+            </li>
+        </router-link>
+        <router-link to="/list" v-slot="{ href, navigate, isActive }" custom>
+            <li class="button" :class="[isActive && 'button--active']">
+                <a :href="href" @click="navigate">Lista bajek</a>
+            </li>
+        </router-link>
+        <li class="button">
+            <button @click="dropdown">Moje konto</button>
         </li>
-    </router-link>
-    <router-link to="/list" v-slot="{ href, navigate, isActive }" custom>
-        <li class="button" :class="[isActive && 'button--active']">
-            <a :href="href" @click="navigate">Lista bajek</a>
-        </li>
-    </router-link>
-    <li class="button">
-        <button @click="dropdown">Moje konto</button>
-    </li>
-</ul>
-<nav v-if="dropdownActive" class="nav__dropdown"  v-click-outside="dropdown">
-    <div class="nav__dropdown__bagde" title="administrator">
-        <svg-icon icon="admin-badge" /> Witaj, {{store.state.user.email.split('@')[0]}}
-    </div>
-    <ul class="nav__dropdown__inner">
-        <li><router-link to="/admin"><svg-icon icon="settingsgear" /> Admin panel</router-link></li>
-        <li><router-link to="/favourites"><svg-icon icon="star" />Ulubione</router-link></li>
-        <li><router-link to="/history"><svg-icon icon="history" />Historia</router-link></li>
-        <li><router-link to="/settings"><svg-icon icon="settings" />Ustawienia</router-link></li>
-        <li @click="logout"><svg-icon icon="logout" />Wyloguj się</li>
     </ul>
-</nav>
+    <nav v-if="dropdownActive" class="nav__dropdown" v-click-outside="dropdown" >
+        <div class="nav__dropdown__bagde" title="administrator">
+            <svg-icon icon="admin-badge" /> Witaj, {{store.state.user.email.split('@')[0]}}!
+        </div>
+        <ul class="nav__dropdown__inner">
+            <li><router-link to="/admin"><svg-icon icon="settingsgear" /> Admin panel</router-link></li>
+            <li><router-link to="/favourites"><svg-icon icon="star" />Ulubione</router-link></li>
+            <li><router-link to="/history"><svg-icon icon="history" />Historia</router-link></li>
+            <li><router-link to="/settings"><svg-icon icon="settings" />Ustawienia</router-link></li>
+            <li @click="logout"><svg-icon icon="logout" />Wyloguj się</li>
+        </ul>
+    </nav>
 </template>
 
 <style>
@@ -102,7 +102,7 @@
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import vClickOutside from 'click-outside-vue3'
 
 export default {
@@ -119,7 +119,6 @@ export default {
             dropdownActive.value = !dropdownActive.value;
         }
         
-
         function logout(){
             store.dispatch('setToken', null);
             store.dispatch('setUser', null);

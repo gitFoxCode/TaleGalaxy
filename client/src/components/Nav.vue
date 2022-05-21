@@ -35,7 +35,7 @@
         <Nav_user v-if="store.state.user.rank == 1" />
         <Nav_premium v-if="store.state.user.rank == 2" />
         <Nav_moderator v-if="store.state.user.rank == 3" />
-        <Nav_admin v-if="store.state.user.rank == 4" />
+        <Nav_admin v-if="store.state.user.rank == 4"/>
       </template>
       <Nav_guest v-else />
     </nav>

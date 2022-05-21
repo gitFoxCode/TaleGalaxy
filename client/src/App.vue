@@ -38,7 +38,7 @@ body{
   background-size: 130%;
   color: #fff;
   min-height: 100vh;
-  padding-bottom: 200px;
+  padding-bottom: 0.1px; // Just CSS things (for footer bottom fix)
 }
 body::after{
   content: "";
@@ -82,7 +82,6 @@ input.input--error{
     border-left: 5px solid red;
     margin-top: 10px;
 }
-
 /* Animations */
 @keyframes shake {
   10%, 90% {
@@ -92,11 +91,9 @@ input.input--error{
   20%, 80% {
     transform: translate3d(2px, 0, 0);
   }
-
   30%, 50%, 70% {
     transform: translate3d(-4px, 0, 0);
   }
-
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }

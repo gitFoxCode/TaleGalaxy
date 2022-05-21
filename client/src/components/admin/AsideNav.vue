@@ -28,6 +28,7 @@ export default {
 aside{
   height: 100vh;
   background-color: rgb(27, 22, 47);
+  padding-top: 4rem;
 }
 nav{
   ul{
@@ -38,7 +39,7 @@ nav{
     display: flex;
     gap: 1rem;
     color: #FFF;
-    padding: 1rem;
+    padding: 1rem 2rem;
     text-decoration: none;
     transition: all 0.3s;
     &:hover{
