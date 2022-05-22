@@ -27,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 aside{
   height: 100vh;
-  background-color: rgb(27, 22, 47);
+  background-color: rgba(27, 22, 47, 0.75);
   padding-top: 4rem;
 }
 nav{

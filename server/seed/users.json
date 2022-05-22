@@ -18,5 +18,80 @@
     "email": "foxmod@galaxy.pl",
     "password": "qwerty",
     "rank": "3"
+},
+{
+    "email": "user1@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user2@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user3@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user4@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user5@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user6@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user7@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user8@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user9@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user10@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user11@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user12@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user13@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "user14@glaxy.pl",
+    "password": "qwerty",
+    "rank": "1"
+},
+{
+    "email": "banned@glaxy.pl",
+    "password": "qwerty",
+    "rank": "0"
 }
 ]

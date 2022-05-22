@@ -14,7 +14,7 @@
     flex-direction: column;
     text-align: center;
 
-    position: absolute;
+    /* position: absolute; */
     right: 0;
     bottom: 0;
     left: 0;

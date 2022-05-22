@@ -44,7 +44,7 @@
             Administrator
             </span>
 
-            <span class="badge badge--moderator" v-if="slotProps.data.rank === 3">
+            <span class="badge badge--green" v-if="slotProps.data.rank === 3">
             <svg-icon icon="admin-badge"/>
             Moderator
             </span>
@@ -57,6 +57,11 @@
             <span class="badge badge--user" v-if="slotProps.data.rank === 1">
             <svg-icon icon="users"/>
             User
+            </span>
+
+            <span class="badge badge--banned" v-if="slotProps.data.rank === 0">
+            <svg-icon icon="ban"/>
+            Banned
             </span>
           </template>
         </Column>
@@ -90,6 +95,8 @@ export default {
         usersCount.value = (await AdminService.getCount({module: 'users'})).count
       })
 
+      // TODO: Przerobić pobieranie użytkowników na backend, dodać edycje i usuwanie użytkowników
+
       const users = ref([]);
       const usersCount = ref(0)
 
@@ -115,82 +122,11 @@ export default {
   font-size: 1rem;
   border: 1px solid #ECECEC;
   padding: 0.3rem 1rem;
-  text-indent: 1.5rem;
+  text-indent: 0.5rem;
   position: relative;
-  &::after{
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 1rem;
-    height: 1rem;
-    background: url('~@/assets/icons/rocket.svg')
-  }
 }
 .panel__title{
   font-size: 2em;
-}
-.table__options{
-  display: flex;
-  gap: 1rem;
-  .btn {
-    padding: 0.3rem;
-    border: 1px solid #F0F0F0;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    position: relative;
-    &:focus{
-      border: 1px solid #333;
-    }
-    &.btn--edit{
-      background-color: hsla(20,100,94,1);
-      color: hsla(20,100,60,1);
-    }
-    &.btn--delete{
-      background-color: hsla(0,100,94,1);
-      color: hsla(0,100,60,1);
-    }
-  }
-}
-.badge{
-  padding: 0.5rem 0.7rem;
-  border-radius: 50rem;
-  & .icon{
-    margin-right: 0.2em;
-  }
-  &.badge--admin{
-    background-color: hsla(0,100,94,1);
-    color: hsla(0,100,60,1);
-  }
-  &.badge--premium{
-    background-color: hsla(30,100,94,1);
-    color: hsla(30,100,60,1);
-  }
-  &.badge--moderator{
-    background-color: hsla(150,100,94,1);
-    color: hsla(150,100,60,1);
-  }
-  &.badge--user{
-    background-color: hsla(200,100,94,1);
-    color: hsla(200,100,60,1);
-  }
-}
-</style>
-
-<style lang="scss">
-.p-datatable .p-datatable-thead > tr > th{
-  background-color: #FFF;
-  color: #292929;
-  &:first-of-type{
-    border-top-left-radius: 0.5rem;
-  }
-  &:last-of-type{
-    border-top-right-radius: 0.5rem;
-  }
-}
-.p-datatable-wrapper{
-  margin-top: 1rem;
+  font-weight: bold;
 }
 </style>

@@ -42,7 +42,8 @@
   </header>
 </template>
 
-<style>
+<style lang="scss">
+.header{
 .buttons {
   display: flex;
   margin-left: 30px;
@@ -99,6 +100,8 @@
   box-shadow: 2px 0px 40px 10px rgb(252 55 29);
   animation: showAnim 0.3s ease forwards;
 }
+}
+
 </style>
 
 <style lang="scss" scoped>

@@ -30,6 +30,10 @@ const routes = [
       {
         path: 'users',
         component: () => import("../views/admin/Users.vue"),
+      },
+      {
+        path: 'series',
+        component: () => import("../views/admin/Series.vue")
       }
     ]
   }

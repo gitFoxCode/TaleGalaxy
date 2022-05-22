@@ -6,5 +6,8 @@ export default{
     },
     async getCount (params){
         return (await axios.get('count', { params })).data
+    },
+    getBaseURL (){
+        return axios.defaults.baseURL
     }
 }
