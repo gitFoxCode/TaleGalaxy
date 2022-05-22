@@ -165,7 +165,7 @@
 <script>
 // import levenshtein from 'js-levenshtein';
 import Listcard from "@/components/Listcard.vue";
-import { ref, onMounted } from "vue"; //jezeli chce reaktywne gowno
+import { ref, onMounted } from "vue";
 
 import SeriesService from "@/services/SeriesService";
 

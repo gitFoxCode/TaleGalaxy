@@ -109,7 +109,7 @@ module.exports = {
         } catch(err){
             console.error("Wystąpił błąd", err)
             res.status(500).send({
-                error: "Zesrało sie xd " + err
+                error: "Wystąpił błąd " + err
             })
         }
     },
@@ -208,7 +208,7 @@ module.exports = {
             //console.log(series,seriesPL);
             console.log("[*] SERIA DODANA!!")
             res.status(200).send({
-                msg: "Seria dodana byku"
+                msg: "Seria dodana"
             });
         } catch (err){
             res.status(500).send({

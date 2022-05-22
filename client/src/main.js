@@ -14,9 +14,10 @@ import Dropdown from 'primevue/dropdown';
 import AutoComplete from 'primevue/autocomplete';
 import 'primevue/resources/themes/saga-blue/theme.css';
 import 'primevue/resources/primevue.min.css';
+import 'primeicons/primeicons.css';
 
 // API url
-axios.defaults.baseURL = "http://localhost:8081/"
+axios.defaults.baseURL = "http://localhost:8081/";
 
 sync(store, router)
 

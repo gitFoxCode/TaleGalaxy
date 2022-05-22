@@ -14,6 +14,7 @@
             <button @click="dropdown">Moje konto</button>
         </li>
     </ul>
+    <Transition>
     <nav v-if="dropdownActive" class="nav__dropdown" v-click-outside="dropdown" >
         <div class="nav__dropdown__bagde" title="administrator">
             <svg-icon icon="admin-badge" /> Witaj, {{store.state.user.email.split('@')[0]}}!
@@ -26,9 +27,21 @@
             <li @click="logout"><svg-icon icon="logout" />Wyloguj się</li>
         </ul>
     </nav>
+    </Transition>
 </template>
 
 <style>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: top center;
+}
 .nav__dropdown__bagde{
     padding: 15px;
     color: #222;
@@ -57,6 +70,7 @@
     background-color: #101628;
     border-radius: 8px;
     box-shadow: 1px 1px 21px -10px #000;
+    transform-origin: top center;
 }
 .nav__dropdown::after{
     content: "";

@@ -2,6 +2,7 @@ const AuthController = require("./controllers/AuthController")
 const AuthPolicy = require("./policies/AuthPolicy.js")
 const SeriesController = require("./controllers/SeriesController")
 const CountController = require("./controllers/CountController")
+const UsersController = require("./controllers/UsersController")
 
 module.exports = (app) =>{
     app.post('/users', 
@@ -28,4 +29,7 @@ module.exports = (app) =>{
 
     app.get('/count',
     CountController.Show)
+
+    app.get('/users',
+    UsersController.GetUsers)
 }

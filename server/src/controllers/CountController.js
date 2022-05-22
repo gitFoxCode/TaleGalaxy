@@ -35,7 +35,7 @@ module.exports = {
             
         } catch(err){
             res.status(500).send({
-                error: "Zesrało sie xd " + err
+                error: "Wystąpił błąd: " + err
             })
         }
     }
