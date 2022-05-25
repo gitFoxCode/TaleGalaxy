@@ -7,7 +7,7 @@ import { sync } from 'vuex-router-sync';
 import store from '@/store/store.js';
 import vClickOutside from "click-outside-vue3";
 import axios from 'axios';
-import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
+//import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
 import PrimeVue from 'primevue/config';
 import Dropdown from 'primevue/dropdown';
@@ -26,7 +26,6 @@ createApp(App)
     .use(store)
     .use(PrimeVue)
     .use(vClickOutside)
-    .use(autoAnimatePlugin)
     .component('svg-sprite', SvgSprite)
     .component('svg-icon', SvgIcon)
     .component('Dropdown', Dropdown)
