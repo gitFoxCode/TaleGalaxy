@@ -1,18 +1,17 @@
 <template>
-  <svg-sprite />
   <Nav />
   <router-view></router-view>
-  <Footer />
+  <GlobalFooter />
 </template>
 
 <script>
 import Nav from "@/components/Nav.vue";
-import Footer from "@/components/Footer.vue";
+import GlobalFooter from "./components/GlobalFooter.vue";
 export default {
   components: {
     Nav,
-    Footer,
-  },
+    GlobalFooter
+},
 };
 </script>
 

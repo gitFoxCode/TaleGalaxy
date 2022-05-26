@@ -8,7 +8,11 @@
         >
       </div>
       <div class="hero__actions">
-        <router-link type="button" class="hero__button" tag="button" to="/login">
+        <router-link 
+        type="button" 
+        class="hero__button" 
+        tag="button" 
+        to="/login">
           Zacznij teraz!<span class="hero__button-addtext"
             >Sprawdź przez 7 dni
             <span class="text--special">za darmo</span>!</span
@@ -20,26 +24,26 @@
       <h2 class="section__title">Galaktykabajek oferuje:</h2>
       <div class="card-items">
         <div class="card-items__card">
-          <span class="card-items__icon"> <svg-icon icon="logo" /> </span>
+          <span class="card-items__icon"> <svg-icon icon="logo" filled/> </span>
           <span class="card-items__text">
             Ponad <b>45.0000</b> odcinków kreskówek na wyciągnięcie ręki!
           </span>
         </div>
         <div class="card-items__card">
-          <span class="card-items__icon"><svg-icon icon="satellite" /></span>
+          <span class="card-items__icon"><svg-icon icon="satellite" filled/></span>
           <span class="card-items__text">
             Wszystkie odcinki dostępne z <b>każdego</b> miejsca na świecie!
           </span>
         </div>
         <div class="card-items__card">
-          <span class="card-items__icon"><svg-icon icon="stars" /></span>
+          <span class="card-items__icon"><svg-icon icon="stars" filled/></span>
           <span class="card-items__text">
             Doskonała jakość <b>animacji</b> oraz <b>dzwięku</b>, która zadowoli największych
             fanów!
           </span>
         </div>
         <div class="card-items__card">
-          <span class="card-items__icon"><svg-icon icon="microphone" /></span>
+          <span class="card-items__icon"><svg-icon icon="microphone" filled/></span>
           <span class="card-items__text">
             Wszystkie sezony Twoich ulubionych kreskówek dostępne w wersji
             <b>dubbingowej</b>!

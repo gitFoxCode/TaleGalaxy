@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import SvgIcon from '@/components/SvgIcon.vue';
-import SvgSprite from '@/components/SvgSprite.vue';
+// import SvgSprite from '@/components/SvgSprite.vue';
 import { sync } from 'vuex-router-sync';
 import store from '@/store/store.js';
 import vClickOutside from "click-outside-vue3";
@@ -26,7 +26,6 @@ createApp(App)
     .use(store)
     .use(PrimeVue)
     .use(vClickOutside)
-    .component('svg-sprite', SvgSprite)
     .component('svg-icon', SvgIcon)
     .component('Dropdown', Dropdown)
     .component('AutoComplete', AutoComplete)

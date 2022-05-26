@@ -7,7 +7,7 @@
 
 <script>
 import AsideNav from "@/components/admin/AsideNav.vue";
-import Box from "@/components/admin/Box.vue";
+// import Box from "@/components/admin/Box.vue";
 
 export default{
     components: {

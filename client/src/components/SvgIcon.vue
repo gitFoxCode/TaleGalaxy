@@ -1,7 +1,8 @@
 <template>
-  <svg class="icon" :class="{ 'icon-spin': spin, 'fill-current': !allowFill }">
+  <!-- <svg class="icon" :class="{ 'icon-spin': spin, 'fill-current': !allowFill }">
     <use :xlink:href="`#${icon}`" />
-  </svg>
+  </svg> -->
+  <svg class="icon" :class="{ 'icon-spin': spin, 'fill-current': !filled }" v-html="rawIcon"></svg>
 </template>
 
 <script>
@@ -12,7 +13,7 @@ export default {
       type: String,
       required: true,
     },
-    allowFill: {
+    filled: {
       type: Boolean,
       default: false,
     },
@@ -21,9 +22,13 @@ export default {
       default: false,
     },
   },
+  setup(props){
+    let rawIcon = require(`@/assets/icons/${props.icon}.svg?raw`)
+    rawIcon = rawIcon.replace(/width="(\d+\.?\d*)"/gmi, '').replace(/height="(\d+\.?\d*)"/gmi, '')
+    return { rawIcon }
+  }
 }
 </script>
-
 <style>
 svg.icon {
   height: 1em;
