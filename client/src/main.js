@@ -7,14 +7,14 @@ import { sync } from 'vuex-router-sync';
 import store from '@/store/store.js';
 import vClickOutside from "click-outside-vue3";
 import axios from 'axios';
-//import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
-
+import { plugin, defaultConfig } from '@formkit/vue'
 import PrimeVue from 'primevue/config';
 import Dropdown from 'primevue/dropdown';
 import AutoComplete from 'primevue/autocomplete';
 import 'primevue/resources/themes/saga-blue/theme.css';
 import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
+import '@formkit/themes/genesis'
 
 // API url
 axios.defaults.baseURL = "http://localhost:8081/";
@@ -24,6 +24,7 @@ sync(store, router)
 createApp(App)
     .use(router)
     .use(store)
+    .use(plugin, defaultConfig)
     .use(PrimeVue)
     .use(vClickOutside)
     .component('svg-icon', SvgIcon)

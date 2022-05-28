@@ -9,7 +9,12 @@
       <ul>
           <li><router-link to="/admin"><svg-icon icon="dashboard"/> Dashboard</router-link></li>
           <li><router-link to="/admin/users"><svg-icon icon="users"/>Users</router-link></li>
-          <li><router-link to="/admin/series"><svg-icon icon="series"/>Series</router-link></li>
+          <li>
+            <router-link to="/admin/series"><svg-icon icon="series"/>Series</router-link>
+            <ul v-show="$route.path.includes('/series')">
+              <li><router-link to="/admin/series/add" class="dropdown-item"><svg-icon icon="plus"/>Add series</router-link></li>
+            </ul>
+          </li>
           <li><router-link to="/admin/episodes"><svg-icon icon="episode"/>Episodes</router-link></li>
           <li><router-link to="/admin/codes"><svg-icon icon="ticket"/>Magic codes</router-link></li>
       </ul>
@@ -26,9 +31,13 @@ export default {
 
 <style lang="scss" scoped>
 aside{
+  position: fixed;
+  left: 0;
+  width: 14rem;
   height: 100vh;
   background-color: rgba(27, 22, 47, 0.75);
   padding-top: 4rem;
+  z-index: 9999;
 }
 nav{
   ul{
@@ -73,5 +82,10 @@ nav{
   .title__exact{
     font-weight: bold;
   }
+}
+
+.dropdown-item{
+  font-size: 0.9em;
+  padding-left: 3rem;
 }
 </style>

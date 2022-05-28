@@ -4,23 +4,33 @@
       <h1 class="panel__title">Series ({{seriesCount}})</h1>
       <input type="text" class="header__input" placeholder="Wyszukaj...">
     </div>
-    
     <DataTable 
     :value="series"
     :paginator="true" 
     :rows="10"
     selectionMode="single" 
-    responsiveLayout="scroll">
+    v-model:selection="selectedSeries"
+    responsiveLayout="scroll"
+    @rowSelect="onRowSelect">
         <Column field="id" header="#ID" :sortable="true"></Column>
         <Column field="title" header="Title" :sortable="true">
           <template #body="slotProps">
             {{slotProps.data.title}}
           </template>
         </Column>
-        <Column field="description" header="Description" :sortable="true"></Column>
+        <Column field="description" header="Description" :sortable="true">
+        <template #body="slotProps">
+          <span v-if="slotProps.data.description.split(' ').length > 6 && selectedSeries.id !== slotProps.data.id">
+            {{ slotProps.data.description.split(' ', 6).join(" ") + "..." }}
+          </span>
+          <span v-else>
+            {{ slotProps.data.description }}
+          </span>
+        </template>
+        </Column>
         <Column field="station" header="Station" :sortable="true"></Column>
         <Column field="rate" header="Rateing" :sortable="true"></Column>
-        <Column field="src" header="SRC link" :sortable="true"></Column>
+        <Column field="src" header="SRC" :sortable="true"></Column>
         <Column field="thumb" header="Thumbnail" :sortable="true">
             <template #body="slotProps">
                 <div class="image__wrapper">
@@ -30,7 +40,9 @@
         </Column>
         <Column field="dubbing" header="Dubbing" :sortable="true">
         <template #body="slotProps">
-            {{ slotProps.data.dubbing.join(', ') }}
+          <span style="display: block" v-for="dubbing in slotProps.data.dubbing" :key="dubbing">
+            {{ dubbing }}
+          </span>
         </template>
         </Column>
         <Column field="pegi" header="PEGI" :sortable="true"></Column>
@@ -47,9 +59,9 @@
         <Column header="Actions">
           <template #body>
             <div class="table__options">
-              <button type="button" class="btn btn--translate" title="Tłumaczenia"><svg-icon icon="translation"/></button>
-              <button type="button" class="btn btn--edit" title="Edytuuj"><svg-icon icon="edit"/></button>
-              <button type="button" class="btn btn--delete" title="Usuń"><svg-icon icon="trash"/></button>
+              <button type="button" class="btn btn--translate" title="Tłumaczenia"><svg-icon icon="translation"/> Translation</button>
+              <button type="button" class="btn btn--edit" title="Edytuuj"><svg-icon icon="edit"/> Edit</button>
+              <button type="button" class="btn btn--delete" title="Usuń"><svg-icon icon="trash"/> Delete</button>
             </div>
           </template>
         </Column>
@@ -75,11 +87,14 @@ export default {
         series.value = await SeriesService.getAllSeries()
         seriesCount.value = (await AdminService.getCount({module: 'series'})).count
       })
-
+      const selectedSeries = ref([])
+      const onRowSelect = (event) => {
+        console.log(selectedSeries.value)
+      }
       const series = ref([]);
       const seriesCount = ref(0)
       const baseURL = AdminService.getBaseURL()
-      return { baseURL, series, seriesCount, formatDistance, subDays }
+      return { baseURL, series, seriesCount, selectedSeries ,onRowSelect, formatDistance, subDays }
     }
 }
 </script>  

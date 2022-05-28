@@ -50,16 +50,26 @@ body{
 }
 .table__options{
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   .btn {
-    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem;
     border: 1px solid #F0F0F0;
     border-radius: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.9em;
     cursor: pointer;
     position: relative;
+    transition: all 0.3s;
     &:focus{
       border: 1px solid #333;
+    }
+    &:hover{
+      transition: all 0.3s;
+      transform: scale(0.9);
     }
     &.btn--edit{
       background-color: hsla(20,100,94,1);
@@ -101,5 +111,24 @@ body{
     background-color: hsla(20,100,94,1);
     color: hsla(20,100,60,1);
   }
+}
+.p-datatable .p-column-header-content {
+  justify-content: center;
+}
+.p-datatable-tbody tr:nth-child(even) {
+  background: rgb(250, 250, 250)
+}
+.p-datatable-table{
+  font-family: "Poppins", sans-serif;
+}
+.p-datatable-wrapper{
+  max-width: 1300px;
+}
+.formkit-actions{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.panel{
+  margin-left: 14rem;
 }
 </style>

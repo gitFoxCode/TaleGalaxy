@@ -33,7 +33,12 @@ const routes = [
       },
       {
         path: 'series',
-        component: () => import("../views/admin/Series.vue")
+        component: () => import("../views/admin/series/Series.vue")
+      },
+      {
+        path: "series/add",
+        name: "Add series",
+        component: () => import("../views/admin/series/add.vue")
       }
     ]
   }
