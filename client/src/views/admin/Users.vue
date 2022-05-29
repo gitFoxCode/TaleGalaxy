@@ -68,8 +68,8 @@
         <Column header="Actions">
           <template #body>
             <div class="table__options">
-              <button type="button" class="btn btn--edit" title="Edytuuj"><svg-icon icon="edit"/></button>
-              <button type="button" class="btn btn--delete" title="Usuń"><svg-icon icon="trash"/></button>
+              <button type="button" class="btn btn--edit" title="Edit"><svg-icon icon="edit"/> Edit</button>
+              <button type="button" class="btn btn--delete" title="Delete"><svg-icon icon="trash"/> Delete</button>
             </div>
           </template>
         </Column>

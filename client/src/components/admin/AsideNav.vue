@@ -13,6 +13,7 @@
             <router-link to="/admin/series"><svg-icon icon="series"/>Series</router-link>
             <ul v-show="$route.path.includes('/series')">
               <li><router-link to="/admin/series/add" class="dropdown-item"><svg-icon icon="plus"/>Add series</router-link></li>
+              <li><router-link to="/admin/series/translations" class="dropdown-item"><svg-icon icon="translation"/>Translate series</router-link></li>
             </ul>
           </li>
           <li><router-link to="/admin/episodes"><svg-icon icon="episode"/>Episodes</router-link></li>

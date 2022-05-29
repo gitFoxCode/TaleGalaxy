@@ -12,7 +12,7 @@
                     duration: '2 weeks',
                     price: 'average'
                 }"
-                submit-label="Save"
+                submit-label="Add series"
                 @submit="save"
                 >
                 <p>Add a new cartoon or cartoon series. Once added, you must run it in the main /series panel (to have time to fix bugs and add episodes) </p>
@@ -74,8 +74,8 @@
                 <FormKit
                     type="number"
                     help="What age of viewer is the series intended for?"
-                    label="pegi"
-                    name="Pegi"
+                    label="Pegi"
+                    name="pegi"
                     value="7"
                     step="1"
                     />
@@ -107,7 +107,7 @@
     font-weight: bold;
 }
 .box__content{
-    padding: 1rem;
+    padding: 1rem 2.5rem;
     background-color: #FFF;
     color: #222;
 }
